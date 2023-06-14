@@ -1,3 +1,4 @@
+import { useOrganization } from "@clerk/clerk-react";
 import { SignedIn, SignedOut } from "@clerk/remix";
 import { Link } from "@remix-run/react";
 
@@ -20,8 +21,8 @@ const SsrDemoLink = () => (
     <div>
       <h3>Visit the SSR demo page</h3>
       <p>
-        See how Clerk hydrates the auth state during SSR and CSR, enabling server-side generation even for
-        authenticated pages
+        See how Clerk hydrates the auth state during SSR and CSR, enabling server-side generation even for authenticated
+        pages
       </p>
     </div>
     <div className="arrow">
@@ -76,7 +77,12 @@ const Main = () => (
         </div>
       </SignedOut>
       <div className="card">
-        <a href="https://dashboard.clerk.dev/last-active?utm_source=github&utm_medium=starter_repos&utm_campaign=remix_starter" target="_blank" rel="noreferrer" className="cardContent">
+        <a
+          href="https://dashboard.clerk.dev/last-active?utm_source=github&utm_medium=starter_repos&utm_campaign=remix_starter"
+          target="_blank"
+          rel="noreferrer"
+          className="cardContent"
+        >
           <img src="/icons/settings.svg" />
           <div>
             <h3>Configure settings for your app</h3>
@@ -90,7 +96,12 @@ const Main = () => (
     </div>
 
     <div className="links">
-      <a href="https://clerk.dev/docs?utm_source=github&utm_medium=starter_repos&utm_campaign=remix_starter" target="_blank" rel="noreferrer" className="link">
+      <a
+        href="https://clerk.dev/docs?utm_source=github&utm_medium=starter_repos&utm_campaign=remix_starter"
+        target="_blank"
+        rel="noreferrer"
+        className="link"
+      >
         <span className="linkText">Read Clerk documentation</span>
       </a>
       <a href="https://remixjs.org/docs" target="_blank" rel="noreferrer" className="link">
@@ -111,6 +122,8 @@ const Footer = () => (
 );
 
 export default function Index() {
+  const { isLoaded, organization } = useOrganization();
+  console.log({ isLoaded, organization });
   return (
     <div className="container">
       <Main />
